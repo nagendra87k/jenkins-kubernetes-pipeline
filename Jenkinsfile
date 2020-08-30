@@ -8,13 +8,13 @@ node{
         sh "${mavenCMD} clean package"
     }
     stage("Build Docker Images"){
-        sh "sudo docker build -t nagendra87k/jenkins-kubernetes-pipeline ."
+        sh "docker build -t nagendra87k/jenkins-kubernetes-pipeline ."
     }
     stage("Push Docker Images"){
         withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENCIAL', variable: 'DOCKER_HUB_CREDENCIAL')]) {
-             sh "sudo docker login -u nagendra87k -p ${DOCKER_HUB_CREDENCIAL}"
+             sh "docker login -u nagendra87k -p ${DOCKER_HUB_CREDENCIAL}"
         }
-        sh "sudo docker push nagendra87k/hello-world-rest-api:0.0.4-SNAPSHOT"
+        sh "docker push nagendra87k/hello-world-rest-api:0.0.4-SNAPSHOT"
     }
     stage('Apply Kubernetes files') {
     withKubeConfig([credentialsId: 'KUBERNETES', serverUrl: 'https://35.224.15.130']) {
