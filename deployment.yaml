@@ -5,7 +5,7 @@ metadata:
     app: hello-world-rest-api
     version: v1
   name: hello-world-rest-api-v1
-  namespace: default
+  namespace: jenkins
 spec:
   replicas: 2
   minReadySeconds: 45
@@ -25,7 +25,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: in28min/hello-world-rest-api:0.0.1.RELEASE
+      - image: nagendra87k/hello-world-rest-api:0.0.4-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: hello-world-rest-api
       restartPolicy: Always
@@ -38,7 +38,7 @@ metadata:
     app: hello-world-rest-api
     version: v2
   name: hello-world-rest-api-v2
-  namespace: default
+  namespace: jenkins
 spec:
   replicas: 2
   minReadySeconds: 45
