@@ -14,7 +14,7 @@ node{
         withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENCIAL', variable: 'DOCKER_HUB_CREDENCIAL')]) {
              sh "docker login -u nagendra87k -p ${DOCKER_HUB_CREDENCIAL}"
         }
-        sh "docker push nagendra87k/todo-web-application-h2:0.0.1-SNAPSHOT"
+        sh "docker push nagendra87k/hello-world-rest-api:0.0.4-SNAPSHOT"
     }
     stage('Apply Kubernetes files') {
     withKubeConfig([credentialsId: 'KUBERNETES', serverUrl: 'https://34.66.217.179']) {
