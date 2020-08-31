@@ -12,7 +12,7 @@ node{
     }
     stage("Push Docker Images"){
         withCredentials([usernameColonPassword(credentialsId: 'DOCKER_HUB_CREDENCIAL', variable: 'DOCKER_HUB_CREDENCIAL')]) {
-            sh "docker login -u nagendra87k -p ${DOCKER_HUB_CREDENCIAL}"
+            sh "docker login --username nagendra87k --password-stdin ${DOCKER_HUB_CREDENCIAL}"
         }
         sh "docker push nagendra87k/hello-world-rest-api:0.0.4-SNAPSHOT"
     }
