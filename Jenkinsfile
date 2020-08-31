@@ -17,7 +17,7 @@ node{
         sh "docker push nagendra87k/hello-world-rest-api:0.0.4-SNAPSHOT"
     }
     stage('Apply Kubernetes files') {
-    withKubeConfig([credentialsId: 'KUBERNETES', serverUrl: 'https://35.224.15.130']) {
+    withKubeConfig([credentialsId: 'KUBERNETES', serverUrl: 'https://34.68.140.157']) {
       sh 'kubectl apply -f deployment.yaml'
     }
     }
