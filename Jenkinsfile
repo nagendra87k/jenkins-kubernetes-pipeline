@@ -8,7 +8,7 @@ node{
         sh "${mavenCMD} clean package"
     }
     stage("Build Docker Images"){
-        sh "docker build -t jenkins-kubernetes-pipeline ."
+        sh "docker build -t nagendra87k/jenkins-kubernetes-pipeline ."
     }
     stage("Push Docker Images"){
         withCredentials([usernameColonPassword(credentialsId: 'DOCKER_HUB_CREDENCIAL', variable: 'DOCKER_HUB_CREDENCIAL')]) {
