@@ -1,6 +1,6 @@
 node{
     stage("Git Clone"){
-        git credentialsId: 'GITHUBID', url: 'https://github.com/nagenra87k/jenkins-kubernetes-pipeline.git'
+        git credentialsId: 'GITHUBLOGINID', url: 'https://github.com/nagenra87k/jenkins-kubernetes-pipeline.git'
     }
     stage("MVN Clean Build"){
         def mavenHome = tool name:"Maven-3.6.1", type: "maven"
